@@ -1,20 +1,19 @@
-const Hello = (props) => {
-  console.log(props)
-  return (
-    <div>
-      <p>Hello {props.name}, you are {props.age} years old</p>
-    </div>
-  )
-}
+import {useState} from 'react'
 
 const App = () => {
-  const name = 'Peter'
-  const age = 10
+  const [value, setValue] = useState(10)
+
+const setToValue = (newValue) => {
+  console.log('value now', newValue)
+  setValue(newValue)
+}
+
   return (
     <div>
-      <h1>Greetings</h1>
-      <Hello name='Maya' age = {26 + 10}/>
-      <Hello name = {name} age = {age}/>
+      {value}
+      <button onClick = {() => setToValue(1000)}>thousand</button>
+      <button onClick = {() => setToValue(0)}>reset</button>
+      <button onClick = {() => setToValue(value + 1)}>increment</button>
     </div>
   )
 }
